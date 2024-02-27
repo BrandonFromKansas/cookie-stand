@@ -57,10 +57,12 @@ let lima = {
 
 
 function simulateCookiesPurchased(location) {
+  console.log(location)
   let hours = location.hours.split(', ');
   let minCustomers = location.minCustomers;
   let maxCustomers = location.maxCustomers;
   let avgSale = location.avgSale;
+
   for (let i = 0; i < hours.length; i++) {
     let customer = getRandomNumberBetween(minCustomers, maxCustomers);
     let cookiesSold = Math.round(customer * avgSale);
@@ -87,7 +89,9 @@ function displayCookiesPerHour(location) {
   salesData.appendChild(locationData);
   const title = document.createElement('h2');
   title.textContent = `${location.name}`;
+  console.log(title)
   salesData.appendChild(title);
+  console.log(salesData)
   let list = document.createElement('ul');
   salesData.appendChild(list)
   location.averageCookiesPerHour.forEach((cookies, index) => {
@@ -116,16 +120,20 @@ function displayCityInfo(location) {
   let title = document.createElement('h2');
   title.textContent = `${location.name}`;
   container.appendChild(title);
+
   let list = document.createElement('ul');
   let hoursItem = document.createElement('li');
   let contactInfoItem = document.createElement('li');
   let locationItem = document.createElement('li');
+
   hoursItem.textContent = `Hours open: ${location.hours}`;
   contactInfoItem.textContent = `Contact info: Phone - ${location.phone}`;
   locationItem.textContent = `Location: ${location.location}`;
+
   list.appendChild(hoursItem);
   list.appendChild(contactInfoItem);
   list.appendChild(locationItem);
+  
   container.appendChild(list);
   document.body.appendChild(container);
 }

@@ -6,23 +6,28 @@ body {
   margin: 0;
   padding: 0;
 }
+
 h1, h2 {
   font-family: 'Righteous', cursive; /* Custom Google Font for heading tags */
   color:  #FA8072; /* Font color for heading tags */
 }
+
 header {
   background-color: #000; /* Header background: Black */
   padding: 10px;
   text-align: center;
 }
+
 nav {
   background-color: #FA8072; /* Header Navigation: Salmon background */
 }
+
 nav a {
   color: #000; /* Link text color in navigation */
   text-decoration: none;
   padding: 10px;
 }
+
 nav a:hover {
   text-decoration: underline;
 }
