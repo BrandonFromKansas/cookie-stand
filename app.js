@@ -1,5 +1,5 @@
 
-
+let salesData = document.getElementById("sales-data")
 let hours = []
 //object literals for shop locations:
 let seattle = {
@@ -55,9 +55,93 @@ let lima = {
     averageCookiesPerHour: []
 }
 
-//function to generate a random number of custo
+
+function simulateCookiesPurchased(location) {
+  let hours = location.hours.split(', ');
+  let minCustomers = location.minCustomers;
+  let maxCustomers = location.maxCustomers;
+  let avgSale = location.avgSale;
+  for (let i = 0; i < hours.length; i++) {
+    let customer = getRandomNumberBetween(minCustomers, maxCustomers);
+    let coodiesSold = Math.round(customer * avgSale);
+    location.averageCookiesPerHour.push(cookiesSold);
+  };
+}
+
+function getRandomNumberBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+simulateCookiesPurchased(seattle);
+simulateCookiesPurchased(tokyo);
+simulateCookiesPurchased(dubai);
+simulateCookiesPurchased(paris);
+simulateCookiesPurchased(lima);
 
 
+function displayCookiesPerHour(location) {
+  //let container = document.createElement('div');
+  const salesData = document.getElementById("root");
+  const locationData = document.createElement("section");
+  locationData.classList.add("location");
+  salesData.appendChild(locationData);
+  const title = document.createElement('h2');
+  title.textContent = `${location.name}`;
+  salesData.appendChild(title);
+  let list = document.createElement('ul');
+  salesData.appendChild(list)
+  location.cookiesPurchasedPerHour.forEach((cookies, index) => {
+    let listItem = document.createElement('li');
+    listItem.textContent = `${location.hours.split(', ')[index]}: ${cookies} cookies`;
+    list.appendChild(listItem);
+  });
+
+}
+
+//Display results for each location
+displayCookiesPerHour(seattle);
+//displayCookiesPerHour(tokyo);
+//displayCookiesPerHour(dubai);
+//displayCookiesPerHour(paris);
+d//isplayCookiesPerHour(lima);
+
+
+
+// Call a function to display city information list
+//displayCityIfoList();
+
+function displayCityInfo(location) {
+  let container = document.createElement('div');
+  let title = document.createElement('h2');
+  title.textContent = `${location.name}`;
+  container.appendChild(title);
+  let list = document.createElement('ul');
+  let hoursItem = document.createElement('li');
+  let contactInfoItem = document.createElement('li');
+  let locationItem = document.createElement('li');
+  hoursItem.textContent = `Hours open: ${location.hours}`;
+  contactInfoItem.textContent = `Contact info: Phone - ${location.phone}`;
+  locationItem.textContent = `Location: ${location.location}`;
+  list.appendChild(hoursItem);
+  list.appendChild(contactInfoItem);
+  list.appendChild(locationItem);
+  container.appendChild(list);
+  document.body.appendChild(container);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 // function to generate a random number of customers within a range.
 function generateRandomCustomers(min, max) {
@@ -80,3 +164,5 @@ simulateSales(seattle);
 //Displays simulated sales for Seattle
 console.log("Simulated sales for Seattle:");
 console.log(seattle.averageCookiesPerHour); 
+
+*/
