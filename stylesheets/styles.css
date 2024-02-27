@@ -1,4 +1,4 @@
-<style>
+
 body {
   font-family: 'Arial', 'Verdana', sans-serif; /* Standard sans-serif web font for sales data */
   color: #333; /* Standard font color for text */
@@ -26,4 +26,3 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
-</style>

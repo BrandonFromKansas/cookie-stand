@@ -63,7 +63,7 @@ function simulateCookiesPurchased(location) {
   let avgSale = location.avgSale;
   for (let i = 0; i < hours.length; i++) {
     let customer = getRandomNumberBetween(minCustomers, maxCustomers);
-    let coodiesSold = Math.round(customer * avgSale);
+    let cookiesSold = Math.round(customer * avgSale);
     location.averageCookiesPerHour.push(cookiesSold);
   };
 }
@@ -90,7 +90,8 @@ function displayCookiesPerHour(location) {
   salesData.appendChild(title);
   let list = document.createElement('ul');
   salesData.appendChild(list)
-  location.cookiesPurchasedPerHour.forEach((cookies, index) => {
+  location.averageCookiesPerHour.forEach((cookies, index) => {
+    console.log(cookies)
     let listItem = document.createElement('li');
     listItem.textContent = `${location.hours.split(', ')[index]}: ${cookies} cookies`;
     list.appendChild(listItem);
@@ -100,10 +101,10 @@ function displayCookiesPerHour(location) {
 
 //Display results for each location
 displayCookiesPerHour(seattle);
-//displayCookiesPerHour(tokyo);
-//displayCookiesPerHour(dubai);
-//displayCookiesPerHour(paris);
-d//isplayCookiesPerHour(lima);
+displayCookiesPerHour(tokyo);
+displayCookiesPerHour(dubai);
+displayCookiesPerHour(paris);
+displayCookiesPerHour(lima);
 
 
 
@@ -128,41 +129,3 @@ function displayCityInfo(location) {
   container.appendChild(list);
   document.body.appendChild(container);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-// function to generate a random number of customers within a range.
-function generateRandomCustomers(min, max) {
-  return Math.floor(Math.random() * (max - min +1)) + min;
-}
-
-
-// Function to calculate and store the simulated amounts of cookies purchased for each HOUR
-function simulateSales(location) {
-  for (let i = 0; i < location.hours.split(', ').length; i++) {
-    let randomCustomers = generateRandomCustomers(location.minCustomers, location.maxCustomers);
-    let cookiesSold = Math.round(randomCustomers * location.avgSale);
-    location.averageCookiesPerHour.push(cookiesSold);
-  }
-}
-
-//Simulate sales for seattle
-simulateSales(seattle);
-
-//Displays simulated sales for Seattle
-console.log("Simulated sales for Seattle:");
-console.log(seattle.averageCookiesPerHour); 
-
-*/
