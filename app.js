@@ -49,7 +49,7 @@ parisStore.simulateCookiesPurchased()
 limaStore.simulateCookiesPurchased()
 
 
-CookieStand.prototype.render = function () {
+function render () {
   //Create header row
   let headerRow = document.createElement("tr");
   let headerCell = document.createElement("th");
@@ -68,39 +68,39 @@ CookieStand.prototype.render = function () {
   salesData.appendChild(headerRow);
 
   // create rows for each store
-  renderStoreRow(seattleStore, salesData);
-  renderStoreRow(tokyoStore, salesData);
-  renderStoreRow(dubaiStore, salesData);
-  renderStoreRow(parisStore, salesData);
-  renderStoreRow(limaStore, salesData);
+  // renderStoreRow(seattleStore, salesData);
+  // renderStoreRow(tokyoStore, salesData);
+  // renderStoreRow(dubaiStore, salesData);
+  // renderStoreRow(parisStore, salesData);
+  // renderStoreRow(limaStore, salesData);
 }
 
-function renderStoreRow(store, table) {
+CookieStand.prototype.renderStoreRow = function () {
   let row = document.createElement("tr");
   let cell = document.createElement("td");
-  cell.textContent = store.name;
+  cell.textContent = this.name;
   row.appendChild(cell);
-  console.log(store)
   for (let i = 0; i < hours.length; i++) {
     //console.log(hours)
     cell = document.createElement("td");
-    cell.textContent = store.cookiesSoldEachHour[i];
+    cell.textContent = this.cookiesSoldEachHour[i];
     row.appendChild(cell);
   }
 
   cell = document.createElement("td");
-  cell.textContent = store.dailyStoreTotal;
+  cell.textContent = this.dailyStoreTotal;
   row.appendChild(cell);
 
-  table.appendChild(row);
+  salesData.appendChild(row);
 }
 
 //Call the render fucntion to display the table. Yeah, that's what I've been trying to do
-seattleStore.render();
-tokyoStore.render();
-dubaiStore.render();
-parisStore.render();
-limaStore.render();
+render()
+seattleStore.renderStoreRow();
+tokyoStore.renderStoreRow();
+dubaiStore.renderStoreRow();
+parisStore.renderStoreRow();
+limaStore.renderStoreRow();
 
 function displayCityInfo(location) {
   let container = document.createElement('div');
