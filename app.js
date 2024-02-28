@@ -171,6 +171,14 @@ function displayCityInfo(location) {
 // Call a function to display city information list
 //displayCityIfoList();
 
+
+
+
+/*I still don't know why these blocks of code were not working last night. They seem to be exactly what my submitted/working code is.
+I went over this block again today and it is set up exactly the way I have it above. I don't get it. I was thinking that maybe a fresh set of eyes would see something I didn't notice the previous night. I got nothing.
+*/
+
+
 // function displayCityInfo(location) {
 //   let container = document.createElement('div');
 //   let title = document.createElement('h2');
