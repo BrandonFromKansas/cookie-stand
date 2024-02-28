@@ -102,6 +102,7 @@ dubaiStore.renderStoreRow();
 parisStore.renderStoreRow();
 limaStore.renderStoreRow();
 
+
 function displayCityInfo(location) {
   let container = document.createElement('div');
   let title = document.createElement('h2');
