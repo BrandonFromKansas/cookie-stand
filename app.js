@@ -23,6 +23,7 @@ let tokyoStore = new CookieStand("Tokyo", 3, 24, 1.2)
 let dubaiStore = new CookieStand("Dubai", 11, 38, 3.7)
 let parisStore = new CookieStand("Paris", 20, 38, 2.3)
 let limaStore = new CookieStand("Lima", 2, 16, 4.6)
+
 allCookieStands.push(seattleStore, tokyoStore, dubaiStore, parisStore, limaStore);
 console.log(allCookieStands)
 
@@ -69,12 +70,6 @@ function render () {
 
   salesData.appendChild(headerRow);
 
-  // create rows for each store
-  // renderStoreRow(seattleStore, salesData);
-  // renderStoreRow(tokyoStore, salesData);
-  // renderStoreRow(dubaiStore, salesData);
-  // renderStoreRow(parisStore, salesData);
-  // renderStoreRow(limaStore, salesData);
 }
 
 
@@ -142,32 +137,3 @@ function createTableFooter () {
 
 
 
-
-
-
-function displayCityInfo(location) {
-  let container = document.createElement('div');
-  let title = document.createElement('h2');
-  title.textContent = `${location.name}`;
-  container.appendChild(title);
-
-  let list = document.createElement('ul');
-  let hoursItem = document.createElement('li');
-  let contactInfoItem = document.createElement('li');
-  let locationItem = document.createElement('li');
-  let totalCookiesItem = document.createElement('li');
-
-  hoursItem.textContent = `Hours open: ${location.hours}`;
-  contactInfoItem.textContent = `Contact info: Phone - ${location.phone}`;
-  locationItem.textContent = `Location: ${location.location}`;
-  totalCookiesItem.textContent = `Total cookies: ${location.totalCookies}`;
-
-  list.appendChild(hoursItem);
-  list.appendChild(contactInfoItem);
-  list.appendChild(locationItem);
-  list.appendChild(totalCookiesItem);
-
-  container.appendChild(list);
-  document.body.appendChild(container);
-
-}
