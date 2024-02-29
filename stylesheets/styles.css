@@ -31,3 +31,16 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+
+table {
+  thead {
+    background: #ccc;
+  }
+  th, td {
+    border: 1px solid #444;
+    padding: .5em;
+  }
+  tfoot {
+    background: #eee;
+  }
+}
