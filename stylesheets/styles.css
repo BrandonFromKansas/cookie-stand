@@ -23,6 +23,27 @@ img {
   margin: auto;
 }
 
+#AddNewStore fieldset {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  margin: 2em;
+}  
+#AddNewStore button,
+#AddNewStore input {
+  flex: 1;
+  margin-right: 10px;
+}
+#AddNewStore input:last-child {
+  margin-right: 0;
+}
+
+#sales-data {
+  display: flexbox;
+  align-items: center;
+  padding: 2px;
+}
 
 
 header {

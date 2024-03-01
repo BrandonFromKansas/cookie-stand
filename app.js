@@ -105,6 +105,8 @@ parisStore.renderStoreRow();
 limaStore.renderStoreRow();
 
 
+
+
 function createTableFooter () {
   let footer = document.getElementById("sales-data");
   let row = document.createElement("tr");
@@ -125,7 +127,13 @@ function createTableFooter () {
   mainTotal.textContent = `${totalSales}`;
   row.appendChild(mainTotal);
 
+  
   }
+
+
+
+
+
 
   function start() {
     console.log("Starting Footer");
@@ -135,5 +143,25 @@ function createTableFooter () {
 
 
 
+let storeform = document.getElementById("addNewStore");
 
+  storeform.addEventListener("submit", function(event) {
+    event.preventDefault();
 
+    let location = event.target.name.value;
+    // console.log(location);
+    let mincustomers = +event.target.mincustomers.value;
+    let maxcustomers = +event.target.maxcustomers.value;
+    let averagecookies = +event.target.averagecookies.value;
+    // console.log(location, mincustomers, maxcustomers, averagecookies);
+
+    let store = new CookieStand(location, mincustomers, maxcustomers, averagecookies);
+    
+  store.renderStoreRow();
+
+  footer.innerHTML= "";
+  createTableFooter();
+
+  });
+
+  
