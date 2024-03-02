@@ -3,6 +3,7 @@ let hours = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "
 let totalsPerHour = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let totalSales = 0;
 const allCookieStands = []
+
 //Constructor for each location
 function CookieStand(name, minCustomers, maxCustomers, avgSale) {
   this.name = name;
@@ -15,6 +16,7 @@ function CookieStand(name, minCustomers, maxCustomers, avgSale) {
   this.simulateCookiesPurchased();
   allCookieStands.push(this);
 }
+
 // Method to simulate cookies purchased.
 CookieStand.prototype.simulateCookiesPurchased = function () {
   //iterate through hours array
@@ -32,6 +34,8 @@ CookieStand.prototype.simulateCookiesPurchased = function () {
 function getRandomNumberBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+
 function render() {
   //Create header row
   let header = document.getElementById('salesTableHeader');
@@ -49,6 +53,8 @@ function render() {
   headerRow.appendChild(headerCell);
   header.appendChild(headerRow);
 }
+
+
 CookieStand.prototype.renderStoreRow = function () {
   let body = document.getElementById('salesTableBody');
   let row = document.createElement("tr");
@@ -69,6 +75,8 @@ CookieStand.prototype.renderStoreRow = function () {
   row.appendChild(cell);
   body.appendChild(row);
 }
+
+
 //Call the render fucntion to display the table. Yeah, that's what I've been trying to do
 // render()
 // seattleStore.renderStoreRow();
@@ -76,6 +84,8 @@ CookieStand.prototype.renderStoreRow = function () {
 // dubaiStore.renderStoreRow();
 // parisStore.renderStoreRow();
 // limaStore.renderStoreRow();
+
+
 let footer = document.getElementById("salesTableFooter");
 function createTableFooter() {
   let row = document.createElement("tr");
@@ -94,6 +104,8 @@ function createTableFooter() {
   mainTotal.textContent = totalSales;
   row.appendChild(mainTotal);
 }
+
+
 function start() {
   console.log('Starting process');
   // instances for each cookiestand
@@ -110,6 +122,7 @@ function start() {
   }
   createTableFooter();
 }
+
 start()
 let storeform = document.getElementById("addNewStore");
 storeform.addEventListener("submit", function (event) {
