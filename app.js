@@ -4,6 +4,7 @@ let totalsPerHour = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let totalSales = 0;
 const allCookieStands = []
 
+
 //Constructor for each location
 function CookieStand(name, minCustomers, maxCustomers, avgSale) {
   this.name = name;
@@ -16,6 +17,7 @@ function CookieStand(name, minCustomers, maxCustomers, avgSale) {
   this.simulateCookiesPurchased();
   allCookieStands.push(this);
 }
+
 
 // Method to simulate cookies purchased.
 CookieStand.prototype.simulateCookiesPurchased = function () {
@@ -122,6 +124,7 @@ function start() {
   }
   createTableFooter();
 }
+
 
 start()
 let storeform = document.getElementById("addNewStore");
